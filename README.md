@@ -14,7 +14,7 @@ Mobile ScreenShots
 
 ## Live Demo
 
-[Live Demo Link](https://eri8-9.github.io/to-do-app/)
+[Live Demo Link](https://eri8-9.github.io/to-do-app/#/)
 
 ## Getting Started
 
