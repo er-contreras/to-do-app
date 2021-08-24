@@ -19,8 +19,7 @@ Mobile ScreenShots
 ## Getting Started
 
 ### Prerequisites
-  - Read about [React](https://reactjs.org/docs/getting-started.html) before start.
-  - Just follow the steps for Getting started, Asset Managment(optional), Output Management and Development (Install the webpack-dev-server)
+  - You can follow [React-Todo-List](https://ibaslogic.com/react-tutorial-for-beginners/) before start.
 
 ### Setup
   - Better have [VS Code](https://code.visualstudio.com/) installed or install the source-code editor of your preference. 
