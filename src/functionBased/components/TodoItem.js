@@ -4,21 +4,19 @@ import styles from './TodoItem.module.css';
 const TodoItem = (props) => {
   const [editing, setEditing] = useState(false);
 
-  useEffect(() => {
-    return () => {
-      console.log('Cleaning Up...')
-    }
-  }, [])
+  useEffect(() => () => {
+    console.log('Cleaning Up...');
+  }, []);
 
   const handleEditing = () => {
     setEditing(true);
-  }
+  };
 
-  const handleUpdatedDone = event => {
-    if (event.key === "Enter") {
+  const handleUpdatedDone = (event) => {
+    if (event.key === 'Enter') {
       setEditing(false);
     }
-  }
+  };
 
   const completedStyle = {
     fontStyle: 'italic',
@@ -29,8 +27,8 @@ const TodoItem = (props) => {
 
   const { completed, id, title } = props.todo;
 
-  let viewMode = {}
-  let editMode = {}
+  const viewMode = {};
+  const editMode = {};
 
   if (editing) {
     viewMode.display = 'none';
@@ -55,13 +53,13 @@ const TodoItem = (props) => {
         style={editMode}
         className={styles.textInput}
         value={title}
-        onChange={e => {
-          props.setUpdate(e.target.value, id)
+        onChange={(e) => {
+          props.setUpdate(e.target.value, id);
         }}
         onKeyDown={handleUpdatedDone}
       />
     </li>
   );
-}
+};
 
 export default TodoItem;

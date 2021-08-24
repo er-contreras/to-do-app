@@ -5,8 +5,6 @@ import TodosList from './TodosList';
 import InputTodo from './InputTodo';
 /* eslint-disable */
 const TodoContainer = () => {
-  const [todos, setTodos] = useState(getInitialTodos())
-
   // useEffect(() => {
   //   console.log('test run')
 
@@ -21,40 +19,38 @@ const TodoContainer = () => {
 
   function getInitialTodos() {
     // getting stored items
-    const temp = localStorage.getItem("todos")
-    const savedTodos = JSON.parse(temp)
-    return savedTodos || []
+    const temp = localStorage.getItem('todos');
+    const savedTodos = JSON.parse(temp);
+    return savedTodos || [];
   }
+
+  const [todos, setTodos] = useState(getInitialTodos());
 
   useEffect(() => {
     // Storing todos items
     const temp = JSON.stringify(todos);
-    localStorage.setItem('todos', temp)
+    localStorage.setItem('todos', temp);
   }, [todos]);
 
   const handleChange = (id) => {
-    setTodos(prevState =>
-      prevState.map(todo => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            completed: !todo.completed,
-          };
-        }
-        return todo;
-      })
-    )
-  }
+    setTodos((prevState) => prevState.map((todo) => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          completed: !todo.completed,
+        };
+      }
+      return todo;
+    }));
+  };
 
   const delTodo = (id) => {
     setTodos([
-      ...todos.filter(todo => {
-        return todo.id !== id
-      }),
+      ...todos.filter((todo) => todo.id !== id),
     ]);
   };
 
-  const addTodoItem = title => {
+  const addTodoItem = (title) => {
     const newTodo = {
       id: uuidv4(),
       title,
@@ -65,14 +61,14 @@ const TodoContainer = () => {
 
   const setUpdate = (updatedTitle, id) => {
     setTodos(
-      todos.map(todo => {
+      todos.map((todo) => {
         if (todo.id === id) {
           todo.title = updatedTitle;
         }
         return todo;
-      })
-    )
-  }
+      }),
+    );
+  };
 
   return (
     <div className="container">
@@ -87,7 +83,7 @@ const TodoContainer = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default TodoContainer;
