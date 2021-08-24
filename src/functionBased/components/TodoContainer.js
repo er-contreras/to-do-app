@@ -5,19 +5,26 @@ import TodosList from './TodosList';
 import InputTodo from './InputTodo';
 /* eslint-disable */
 const TodoContainer = () => {
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(getInitialTodos())
 
-  useEffect(() => {
-    console.log('test run')
+  // useEffect(() => {
+  //   console.log('test run')
 
-    // Getting stored items
-    const temp = localStorage.getItem('todos');
-    const loadedTodos = JSON.parse(temp);
+  //   // Getting stored items
+  //   const temp = localStorage.getItem('todos');
+  //   const loadedTodos = JSON.parse(temp);
 
-    if (loadedTodos) {
-      setTodos(loadedTodos)
-    }
-  }, [setTodos]);
+  //   if (loadedTodos) {
+  //     setTodos(loadedTodos)
+  //   }
+  // }, [setTodos]);
+
+  function getInitialTodos() {
+    // getting stored items
+    const temp = localStorage.getItem("todos")
+    const savedTodos = JSON.parse(temp)
+    return savedTodos || []
+  }
 
   useEffect(() => {
     // Storing todos items
